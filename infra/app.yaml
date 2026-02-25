@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: ashrith2727/nginx-app:v1
+        image: ashrith2727/ng-app:v1
         ports:
           - containerPort: 5001
 
