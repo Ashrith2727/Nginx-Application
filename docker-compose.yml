@@ -13,7 +13,7 @@ services:
 
   app1:
     build: ./app
-    image: ng-app:v1
+    image: ashrith2727/ng-app:v1
     container_name: ng-app
     depends_on:
       - postgres
@@ -22,7 +22,7 @@ services:
 
   app2:
     build: ./app
-    image: ng-app2:v1
+    image: ashrith2727/ng-app2:v1
     container_name: ng-app2
     depends_on:
       - postgres
@@ -31,7 +31,7 @@ services:
 
   app3:
     build: ./app
-    image: ng-app3:v1
+    image: ashrith2727/ng-app3:v1
     container_name: ng-app3
     depends_on:
       - postgres
