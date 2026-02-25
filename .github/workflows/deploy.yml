@@ -32,16 +32,14 @@ jobs:
 
       - name: Setup Kubeconfig
         run: |
-          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > kubeconfig
-        env:
-          KUBECONFIG: kubeconfig
+          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
+          chmod 600 $HOME/.kube/config
 
       - name: Update Deployment
         run: |
           kubectl set image deployment/python-app \
-          python-app=$IMAGE_NAME:${{ github.sha }} \
-          --kubeconfig=kubeconfig
-
+          python-app=$IMAGE_NAME:${{ github.sha }}
+      
       - name: Verify Rollout
         run: |
           kubectl rollout status deployment/python-app \
